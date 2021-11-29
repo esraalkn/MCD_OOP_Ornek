@@ -36,7 +36,22 @@ namespace MCD_OOP_Ornek.Classlar
 
         public void MusterininSepetiniYazdir()
         {
-
+            
+            if (MusterininUrunSepeti.UrunlerListesi.Count>0)
+            {
+                //Listeyi yazdırmadan önce doğum günü durumuna bakmanız gerekiyor.
+                if (MusterininDogumGunuMu() == true)
+                {
+                    MusterininUrunSepeti.DogumGunuHediyesiEkle();
+                    Console.WriteLine("Doğum gününüz kutlu olsun. Gofret hediyemiz sepete eklendi...");
+                }
+                int sayac = 1;
+                foreach (var item in MusterininUrunSepeti.UrunlerListesi)
+                {
+                    Console.WriteLine(sayac + " . ürününüz: " +item.UrunAdi);
+                    sayac++;
+                }
+            }
         }
 
         #endregion
